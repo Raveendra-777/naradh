@@ -49,20 +49,23 @@ client = OpenAI(
 )
 
 print("Type 'exit' to stop\n")
-
+messages=[
+        {"role": "system", "content": "You are a helpful assistant. Speak naturally and remember context."},
+        {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question."},
+        {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."}
+    ]
 while True:
     user_input = input("User: ")
 
     if user_input.lower() == "exit":
         break
-
+    messages.append({"role": "user", "content": user_input})
     response = client.chat.completions.create(
     model="openai/gpt-4o-mini",
-    messages=[
-        {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question."},
-        {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."},
-        {"role": "user", "content": user_input}
-    ]
+    messages=messages
 )
 
-    print("Bot:", response.choices[0].message.content)
+    reply = response.choices[0].message.content
+    print("Bot:", reply)
+
+    messages.append({"role": "assistant", "content": reply})
