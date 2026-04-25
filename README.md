@@ -28,9 +28,10 @@ naradh
 ## Notes
 
 * Make sure Python 3 is installed
-* if not install by this command ```bash
+* if not install by this command
+```bash
 sudo apt install python3
-   ```
+```
 * `/usr/local/bin` allows running the command globally
 * If `naradh` doesn’t work, restart terminal or run:
 
