@@ -54,8 +54,11 @@ messages=[
         {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question."},
         {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."}
     ]
+RED = "\033[31m"
+BLUE = "\033[34m"
+RESET = "\033[0m"
 while True:
-    user_input = input("User: ")
+    user_input = input(BLUE+"User: "+RESET)
 
     if user_input.lower() == "exit":
         break
@@ -66,6 +69,6 @@ while True:
 )
 
     reply = response.choices[0].message.content
-    print("Bot:", reply)
+    print(RED+"Bot:", reply+RESET)
 
     messages.append({"role": "assistant", "content": reply})
