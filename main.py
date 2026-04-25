@@ -1,49 +1,11 @@
-from openai import OpenAI
-art = """
-███╗   ██╗ █████╗ ██████╗  █████╗ ██████╗ ██╗  ██╗
-████╗  ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║  ██║
-██╔██╗ ██║███████║██████╔╝███████║██║  ██║███████║
-██║╚██╗██║██╔══██║██╔══██╗██╔══██║██║  ██║██╔══██║
-██║ ╚████║██║  ██║██║  ██║██║  ██║██████╔╝██║  ██║
-╚═╝  ╚═══╝╚═╝  ╚═╝╚═╝  ╚═╝╚═╝  ╚═╝╚═════╝ ╚═╝  ╚═╝
-"""
-bot="""
-      ╔═══════╗
-      ║ ◉   ◉ ║
-      ║  ▬▬▬  ║
-╔═════╩═══════╩═════╗
-║   [  CPU CORE  ]  ║
-╚═════╦═══════╦═════╝
-      ║  ███  ║
-   ╔══╝       ╚══╗
-  ║               ║
-  ║               ║
-   ╚══╗       ╔══╝
-      ║       ║
-     ═╩═     ═╩═
-"""
-print("\033[32m" + art + "\033[0m")
-print("\033[36m" + bot + "\033[0m")
-client = OpenAI(
-    api_key="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",
-    base_url="https://openrouter.ai/api/v1"
-)
+import subprocess
+import sys
 
-print("Type 'exit' to stop\n")
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
 
-while True:
-    user_input = input("User: ")
-
-    if user_input.lower() == "exit":
-        break
-
-    response = client.chat.completions.create(
-        model="openai/gpt-4o-mini",
-        messages=[
-            {"role": "user", "content": user_input},
-            {"role": "system", "content": "You are a helpful assistant. If the user says something vague like 'hmm', ask a follow-up question instead of greeting again.",
-             "role": "system", "content": "Speak in friendly conversation, express feelings and emotions and use emojis when appropriate and behave like human and avoid repeating yourself."}
-        ]
-    )
-
-    print("Bot:", response.choices[0].message.content)
+try:
+    import openai
+except ImportError:
+    install("openai")
+    import openai
