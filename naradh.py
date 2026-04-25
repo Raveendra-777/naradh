@@ -4,6 +4,9 @@ import subprocess
 import sys
 
 def install(package):
+    subprocess.check_call([sys.executable, "-m", "sudo", "apt", "install", "pipx"])
+    subprocess.check_call([sys.executable, "-m", "pipx", "ensurepath"])
+
     subprocess.check_call([sys.executable, "-m", "pipx", "install", package])
 
 try:
