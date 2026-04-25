@@ -43,8 +43,9 @@ bot="""
 """
 print("\033[32m" + art + "\033[0m")
 print("\033[36m" + bot + "\033[0m")
+api_key = input("enter your api key:")
 client = OpenAI(
-    api_key="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",
+    api_key=api_key,
     base_url="https://openrouter.ai/api/v1"
 )
 
