@@ -8,7 +8,7 @@ A simple command-line tool.
 ## Installation (Linux)
 
 ```bash
-git clone https://github.com/yourusername/naradh.git
+git clone https://github.com/Raveendra-777/naradh.git
 cd naradh
 chmod +x naradh.py
 mv naradh.py naradh
