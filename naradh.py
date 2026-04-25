@@ -54,7 +54,7 @@ messages=[
         {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question."},
         {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."}
     ]
-RED = "\033[31m"
+RED = "\033[92m"
 BLUE = "\033[34m"
 RESET = "\033[0m"
 while True:
