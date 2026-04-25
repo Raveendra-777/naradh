@@ -41,11 +41,12 @@ while True:
         break
 
     response = client.chat.completions.create(
-        model="openai/gpt-4o-mini",
-        messages=[
-    {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question instead of greeting again."},
-    {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."},
-    {"role": "user", "content": user_input}
-]
+    model="openai/gpt-4o-mini",
+    messages=[
+        {"role": "system", "content": "You are a helpful assistant. If the user says something vague like hmm, ask a follow-up question."},
+        {"role": "system", "content": "Speak in a friendly conversational way, show emotions and avoid repeating yourself."},
+        {"role": "user", "content": user_input}
+    ]
+)
 
     print("Bot:", response.choices[0].message.content)
