@@ -25,19 +25,12 @@ naradh
 
 ---
 
-## Dependencies
-
-If your project uses external packages (like OpenAI or others), install them first:
-
-```bash
-pip install -r requirements.txt
-```
-
----
-
 ## Notes
 
 * Make sure Python 3 is installed
+* if not install by this command ```bash
+sudo apt install python3
+   ```
 * `/usr/local/bin` allows running the command globally
 * If `naradh` doesn’t work, restart terminal or run:
 
