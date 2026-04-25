@@ -1,7 +1,18 @@
 #!/usr/bin/env python3
-import main
+
+import subprocess
+import sys
+
+def install(package):
+    subprocess.check_call([sys.executable, "-m", "pip", "install", package])
+
+try:
+    from openai import OpenAI
+except ImportError:
+    install("openai")
+    from openai import OpenAI
 import os
-from openai import OpenAI
+
 art = """
 ███╗   ██╗ █████╗ ██████╗  █████╗ ██████╗ ██╗  ██╗
 ████╗  ██║██╔══██╗██╔══██╗██╔══██╗██╔══██╗██║  ██║
